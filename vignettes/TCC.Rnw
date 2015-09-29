@@ -1178,7 +1178,7 @@ d <- estimateGLMTrendedDisp(d, design)
 d <- estimateGLMTagwiseDisp(d, design)
 fit <- glmFit(d, design)
 lrt <- glmLRT(fit, coef = coef)
-result <- topTags(lrt, n = nrow(hypoData_mg))
+result <- as.data.frame(topTags(lrt, n = nrow(hypoData_mg)))
 result <- result$table[rownames(hypoData_mg), ]
 pval <- lrt$table$PValue
 qval <- p.adjust(pval, method = "BH")
@@ -2517,7 +2517,6 @@ tmp <- as.data.frame(topTags(lrt, n = nrow(tcc$count)))
 p.value <- tmp$table$PValue
 q.value <- tmp$table$FDR
 result <- cbind(p.value, q.value)
-rownames(result) <- rownames(tmp)
 head(result)
 sum(q.value < 0.1)
 sum(q.value < 0.2)

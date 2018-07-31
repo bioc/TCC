@@ -24,7 +24,7 @@ implemented in other R packages.
 
     \item{test.method}{character string specifying a method for identifying
           DEGs: one of \code{"edger"}, \code{"deseq"}, \code{"deseq2"},
-          \code{"bayseq"}, \code{"samseq"}, \code{"voom"}, and \code{"wad"}.
+          \code{"bayseq"}, \code{"voom"}, and \code{"wad"}.
           See the "Details" field for detail.
           The default is \code{"edger"} when analyzing the count data with
           replicates (i.e., \code{min(table(tcc$group[, 1])) > 1}), and
@@ -82,9 +82,7 @@ implemented in other R packages.
           for details.}
 
     \item{samplesize}{integer specifying (i) the sample size for estimating the
-          prior parameters if \code{test.method = "bayseq"} (defaults to 10000),
-          and (ii) the number of permutation in samr if
-          \code{test.method = "samseq"} (defaults to 100).}
+          prior parameters if \code{test.method = "bayseq"} (defaults to 10000).}
 
     \item{logged}{logical. If \code{TRUE}, the input data are regarded as 
           log2-transformed. If \code{FALSE}, the log2-transformation is
@@ -157,12 +155,6 @@ packages are internally called according to the specified
           If \code{paired = TRUE}, 
           \code{\link[baySeq]{getPriors}} and
           \code{\link[baySeq]{getLikelihoods}} in baySeq are used.
-    \item \code{test.method = "samseq"}\cr
-          \code{\link[samr]{SAMseq}} with
-          \code{resp.type = "Two class unpaired"} arugment
-          in samr package is called to identify DEGs for two-group data,
-          \code{resp.type = "Two class paired"} for paired two-group data,
-          and \code{resp.type = "Multiclass"} for multi-group data.
     \item \code{test.method = "voom"}\cr
           \code{\link[limma]{voom}}, \code{\link[limma]{lmFit}}, and
           \code{\link[limma]{eBayes}} in limma are internally called

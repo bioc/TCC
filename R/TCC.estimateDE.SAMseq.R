@@ -1,3 +1,5 @@
+if (FALSE) {
+
 TCC$methods(.testBySamseq = function(...) {
 
 if(! requireNamespace("samr", quietly=TRUE)) {
@@ -79,4 +81,4 @@ switch(test.approach,
 
 })
 
-
+}

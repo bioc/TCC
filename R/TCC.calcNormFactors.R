@@ -168,7 +168,6 @@ TCC$methods(calcNormFactors = function(norm.method = NULL,
                    "deseq2" = .self$.testByDeseq2(...),
                    "bayseq" = .self$.testByBayseq(...),
                    "voom" = .self$.testByLimmavoom(...),
-                   "samseq" = .self$.testBySamseq(...),
                    "wad" = .self$.testByWad(...),
                    #"yayoi" = .self$.testByYayoi(norm = TRUE, ...),
                    stop(paste("\nTCC::ERROR: The identifying method of ", test.method, " doesn't supported.\n"))
